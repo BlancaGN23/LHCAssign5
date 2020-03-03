@@ -1,0 +1,39 @@
+#include <iostream>
+#include <iomanip>
+#include <fstream>
+#include <vector>
+#include <math.h>
+#include <iterator>
+using namespace std;
+float size;
+float x;
+float Sum;
+float Avg;
+float Sum2;
+float StD;
+float StdSum;
+float StDevi;
+
+
+int main(int argc, char *argv[]){
+int sum = 0;
+std::fstream myfile ("/home/ubuntu/Desktop/numbers.txt", std::ios_base::in);
+vector<double> vectX{};
+
+while (myfile>>x){
+	size = size +1;
+	Sum = Sum + x;
+	vectX.push_back(x);
+}
+Avg = Sum/size;
+for (float r:vectX){
+	StD = ( r - Avg) *( r - Avg);
+	StdSum = StdSum + StD;}
+StDevi = sqrt(StdSum / size);
+
+
+cout<<"size "<<size<<endl;
+cout<<"sum "<<Sum<<endl;
+cout<<"avg "<<Avg<<endl;
+cout<<"stdev "<<StDevi<<endl;
+}
