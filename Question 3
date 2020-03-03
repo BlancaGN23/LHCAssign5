@@ -98,5 +98,8 @@ cout<<"Linear Coefficient :"<<P<<endl;
 
 
 
+//more notes:
+//data sets and set size are not hard coded - text file can be changed and script will still work
+//(I think) the only thing I COULDN'T figure out, was how to do the square root without using a command
 
 
