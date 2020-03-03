@@ -1,0 +1,72 @@
+
+using namespace std;
+#include <iostream>
+#include <vector>
+#include <math.h>
+#include <fstream>
+float vecX;
+float vecY;
+float i;
+float Xsum = 0;
+float Xmean = 0;
+float Xsize = 0;
+float Ysum = 0;
+float Ymean = 0;
+float Ysize = 0;
+float Esum = 0;
+float Eavg;
+float MeanX;
+float MeanY;
+float Top;
+float StdDevX;
+float StdSumX;
+float StdX;
+float StdDevY;
+float StdSumY;
+float StdY;
+
+int main(int argc, char * argv[]){
+	vector<double> vecX, vecY;
+	double x,y;
+
+	std::fstream inputFile("/home/ubuntu/Desktop/numberlist.txt", std::ios_base::in);
+
+	while (inputFile >> x>> y){
+	vecX.push_back(x);
+	Xsize = Xsize+1;
+	Xsum = x + Xsum;
+
+	vecY.push_back(y);
+	Ysize = Ysize+1;
+	Ysum = y + Ysum;
+	Esum = x+y + Esum;
+	}
+
+
+	
+Eavg = Esum/Xsize;
+MeanX= Xsum/Xsize;
+MeanY= Ysum/Ysize;
+
+	for (float r:vecX){
+	StdX = (r - MeanX)*(r - MeanX);
+	StdSumX = StdSumX + StdX;
+	}
+
+	for (float t:vecY){
+	StdY = (t - MeanY)*(t - MeanY);
+	StdSumY = StdSumY + StdY;
+	}
+
+Top = Eavg - (MeanX * MeanY);
+StdDevX = sqrt(StdSumX / Xsize);
+StdDevY = sqrt(StdSumY / Ysize);
+
+cout<<"mean x :"<<MeanX<<endl;
+cout<<"mean y :"<<MeanY<<endl;
+cout<<"Stdev of X :"<<StdDevX<<endl;
+cout<<"Stdev of Y :"<<StdDevY<<endl;
+}
+
+
+
