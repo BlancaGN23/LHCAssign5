@@ -48,3 +48,12 @@ cout<<"Left Riemann sum area "<<AT<<endl;
 }
 
 
+//For this script, only the equation is hard coded
+//user is asked to specify limits and number of bins
+//For the equation given, I found the following values per number of bins
+//n = 10: 3357.21
+//n = 50: 4231.06
+//n = 100: 4154.24
+//n = 500: 4078.12
+//these values are compared to the actual integral result = 4078.13
+//estimation is closest around 5000-10,00. After that, the numbers start diverging again
