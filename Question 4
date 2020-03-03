@@ -1,0 +1,50 @@
+//Blanca Nino
+//LHCProgramming Spring 2020, Fresno State
+//Assignment 5, question 4
+//calculate the Riemann sum of the integral
+#include <iostream>
+#include <iomanip>
+#include <fstream>
+#include <vector>
+#include <math.h>
+using namespace std;
+//declaring a bunch of variables as floats
+float wid;
+float lim1;
+float lim2;
+float N;
+float H;
+float A;
+float AT = 0;
+float x;
+
+int main() {
+//enter the limits you want to integrate over
+cout<<"Enter starting limit "<<endl;
+cin>>lim1;
+cout<<"Enter ending limit "<<endl;
+cin>>lim2;
+//enter the numbers of boxes 
+cout<<"Enter n "<<endl;
+cin>>N;
+//calculate the width of each box
+wid = (lim2 - lim1) / N;
+//set the point along the first axis as limit 1 - start here
+x = lim1;
+
+//while we move along the x axis, find sreas, but don't go any further than the specified second limit
+while (x < lim2){
+//evaluvating equation at x, point along x axis (left)
+H = (3*x*x*x) - (4*x*x) + (3.2198*x);
+//area under the curve = evaulated heigh y at x * width
+A = wid * H;
+//running sum of all areas under curve
+AT = AT + A;
+//move to beggining of next box
+x = x + wid;
+}
+//print out
+cout<<"Left Riemann sum area "<<AT<<endl;
+}
+
+
