@@ -1,3 +1,9 @@
+//Blanca Nino - Feb 25th, 2020
+//LHC Programming Course
+//Assignment 5, Question 1
+//Given a set of numbers write a program which calculates the standard deviation
+
+
 #include <iostream>
 #include <iomanip>
 #include <fstream>
@@ -16,24 +22,37 @@ float StDevi;
 
 
 int main(int argc, char *argv[]){
-int sum = 0;
+int sum = 0
+//I input a text file with a list of number instead of hard-coding them in
 std::fstream myfile ("/home/ubuntu/Desktop/numbers.txt", std::ios_base::in);
+//initializing a vector Ill be using later
 vector<double> vectX{};
 
+//go through all the elements in the list
+//create a size sum, to find the size of the list
+//create a running sum of the numbers in the list
+//then put these numbers into a different vector, which I'll  use to calculate the standard deviation
 while (myfile>>x){
 	size = size +1;
 	Sum = Sum + x;
 	vectX.push_back(x);
 }
 Avg = Sum/size;
+//now that we're out of the while loop, we've found the size, sum and average of the input list file
+//go through all the elements in the list, which I put into a vector and do some calcuations
+//this is the only way I found I could go through the entire list a second time
 for (float r:vectX){
 	StD = ( r - Avg) *( r - Avg);
 	StdSum = StdSum + StD;}
 StDevi = sqrt(StdSum / size);
 
+//print out values that are of interest
 
 cout<<"size "<<size<<endl;
 cout<<"sum "<<Sum<<endl;
 cout<<"avg "<<Avg<<endl;
 cout<<"stdev "<<StDevi<<endl;
 }
+
+
+//again, sqrt command is still present
